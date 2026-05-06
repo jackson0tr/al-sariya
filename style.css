@@ -23,6 +23,10 @@ body {
     color: #6B7280;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 .custom-navbar {
     width: 100%;
     background: #1C2A44;
@@ -80,24 +84,63 @@ body {
 }
 
 @media (max-width: 768px) {
+
     .nav-links {
-        position: absolute;
-        top: 70px;
-        right: 0;
+        position: fixed;
+        top: 100px;
+        left: 0;
+        width: 100%;
         background: #1C2A44;
-        width: 200px;
+
         flex-direction: column;
-        display: none;
         padding: 20px;
+
+        display: flex;
+        text-align: center;
+
+        transform: translateY(-20px);
+        opacity: 0;
+        visibility: hidden;
+
+        transition: all 0.3s ease;
+        z-index: 1001;
     }
 
     .nav-links.active {
-        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
     }
 
     .menu-toggle {
         display: block;
     }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* background: rgba(0,0,0,0.5); */
+    background: transparent;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+
+    z-index: 1000;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.menu-open {
+    overflow: hidden;
 }
 
 main {

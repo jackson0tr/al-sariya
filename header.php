@@ -27,3 +27,5 @@
         <div class="menu-toggle">&#9776;</div>
     </div>
 </nav>
+
+<div class="overlay"></div>
